@@ -8,7 +8,7 @@ const Map = ({ location, zoom = 12 }) => {
   };
 
   return (
-    <LoadScript googleMapsApiKey={'AIzaSyACRnrdDeJ5zs4jIQUAV81ZsVw6C9Wi-oQ'}>
+    <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
       <GoogleMap mapContainerStyle={mapStyles} center={location} zoom={zoom}>
         <Marker position={location} />
       </GoogleMap>
