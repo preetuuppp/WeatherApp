@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-const SearchBar = ({ onSearch }) => {
+const Searchbar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = e => {
@@ -26,8 +25,4 @@ const SearchBar = ({ onSearch }) => {
   );
 };
 
-SearchBar.propTypes = {
-  onSearch: PropTypes.func.isRequired,
-};
-
-export default SearchBar;
+export default Searchbar;

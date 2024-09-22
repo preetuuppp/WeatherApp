@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherCard from '../components/WeatherCard';
 import ForecastCard from '../components/ForecastCard';
-import SearchBar from '../components/SearchBar';
+import Searchbar from '../components/Searchbar';
 import Map from '../components/Map';
 
 const API_KEY = 'fe4feefa8543e06d4f3c66d92c61b69c';
@@ -125,7 +125,7 @@ const Home = () => {
 
   return (
     <div className='home-background'>
-      <SearchBar onSearch={handleSearch} />
+      <Searchbar onSearch={handleSearch} />
       <WeatherCard
         city={city}
         temp={temperature}
