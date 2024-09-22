@@ -17,6 +17,8 @@ Visit: https://weather-app-chgu.vercel.app/
 
 ## Front-End Deployment - Vercel
 
+## Api 
+...>  Weather Api
 
 ### Note
 
@@ -45,9 +47,9 @@ Step-2- install node_modules using npm install
 
 # Desktop View
 
-![Screenshot 2024-09-22 150657](https://github.com/user-attachments/assets/1757394e-1a3f-44e0-a846-6e98736f24be)
-
 ![Screenshot 2024-09-22 150728](https://github.com/user-attachments/assets/70bdcde1-f94b-469f-bb68-b1f9b9fdf46d)
+
+![Screenshot 2024-09-22 150657](https://github.com/user-attachments/assets/1757394e-1a3f-44e0-a846-6e98736f24be)
 
 ![Screenshot 2024-09-22 150822](https://github.com/user-attachments/assets/35d64b8e-6183-4880-b837-60da2f5873e1)
 
