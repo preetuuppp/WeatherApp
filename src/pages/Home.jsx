@@ -49,7 +49,7 @@ const Home = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`,
       );
-      setTemperature(Math.round(response.data.main.temp)); // Rounding temperature
+      setTemperature(Math.round(response.data.main.temp));
       setCity(response.data.name);
 
       const forecastResponse = await axios.get(
@@ -68,7 +68,7 @@ const Home = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`,
       );
-      setTemperature(Math.round(response.data.main.temp)); // Rounding temperature
+      setTemperature(Math.round(response.data.main.temp));
       setLocation({
         lat: response.data.coord.lat,
         lng: response.data.coord.lon,
@@ -102,8 +102,8 @@ const Home = () => {
       if (!days[day]) {
         days[day] = {
           day,
-          high: Math.round(item.main.temp_max), // Rounding high temperature
-          low: Math.round(item.main.temp_min), // Rounding low temperature
+          high: Math.round(item.main.temp_max),
+          low: Math.round(item.main.temp_min),
           icon: item.weather[0].icon,
           condition: item.weather[0].description,
         };
@@ -112,7 +112,7 @@ const Home = () => {
           days[day].high,
           Math.round(item.main.temp_max),
         );
-        days[day].low = Math.min(days[day].low, Math.round(item.main.temp_min)); // Rounding before comparison
+        days[day].low = Math.min(days[day].low, Math.round(item.main.temp_min));
       }
     });
 
