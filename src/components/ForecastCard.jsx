@@ -1,6 +1,9 @@
 import React from 'react';
+import useWeatherBackground from '../hooks/useWeatherBackground';
 
 const ForecastCard = ({ day, high, low, icon, condition }) => {
+  const background = useWeatherBackground(condition); // Use custom hook for background
+
   return (
     <div className='forecast-card'>
       <h3>{day}</h3>

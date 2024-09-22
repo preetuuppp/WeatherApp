@@ -4,17 +4,12 @@ import WeatherCard from '../components/WeatherCard';
 import ForecastCard from '../components/ForecastCard';
 import SearchBar from '../components/SearchBar';
 import Map from '../components/Map';
-import {
-  celsiusToFahrenheit,
-  fahrenheitToCelsius,
-} from '../utils/TempratureConversion';
 
 const API_KEY = 'fe4feefa8543e06d4f3c66d92c61b69c';
 
 const Home = () => {
   const [temperature, setTemperature] = useState(null);
   const [forecast, setForecast] = useState([]);
-  const [isCelsius, setIsCelsius] = useState(true);
   const [city, setCity] = useState('New York');
   const [location, setLocation] = useState({ lat: 40.7128, lng: -74.006 });
   const [condition, setCondition] = useState('');
@@ -54,7 +49,7 @@ const Home = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`,
       );
-      setTemperature(response.data.main.temp);
+      setTemperature(Math.round(response.data.main.temp)); // Rounding temperature
       setCity(response.data.name);
 
       const forecastResponse = await axios.get(
@@ -73,7 +68,7 @@ const Home = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`,
       );
-      setTemperature(response.data.main.temp);
+      setTemperature(Math.round(response.data.main.temp)); // Rounding temperature
       setLocation({
         lat: response.data.coord.lat,
         lng: response.data.coord.lon,
@@ -107,14 +102,17 @@ const Home = () => {
       if (!days[day]) {
         days[day] = {
           day,
-          high: item.main.temp_max,
-          low: item.main.temp_min,
+          high: Math.round(item.main.temp_max), // Rounding high temperature
+          low: Math.round(item.main.temp_min), // Rounding low temperature
           icon: item.weather[0].icon,
           condition: item.weather[0].description,
         };
       } else {
-        days[day].high = Math.max(days[day].high, item.main.temp_max);
-        days[day].low = Math.min(days[day].low, item.main.temp_min);
+        days[day].high = Math.max(
+          days[day].high,
+          Math.round(item.main.temp_max),
+        ); // Rounding before comparison
+        days[day].low = Math.min(days[day].low, Math.round(item.main.temp_min)); // Rounding before comparison
       }
     });
 
@@ -125,31 +123,8 @@ const Home = () => {
     return dailyData.slice(0, 5); // Limit to 5 days
   };
 
-  const toggleTemperatureUnit = () => {
-    if (isCelsius) {
-      setTemperature(celsiusToFahrenheit(temperature));
-      setForecast(
-        forecast.map(day => ({
-          ...day,
-          high: celsiusToFahrenheit(day.high),
-          low: celsiusToFahrenheit(day.low),
-        })),
-      );
-    } else {
-      setTemperature(fahrenheitToCelsius(temperature));
-      setForecast(
-        forecast.map(day => ({
-          ...day,
-          high: fahrenheitToCelsius(day.high),
-          low: fahrenheitToCelsius(day.low),
-        })),
-      );
-    }
-    setIsCelsius(!isCelsius);
-  };
-
   return (
-    <div>
+    <div className='home-background'>
       <SearchBar onSearch={handleSearch} />
       <WeatherCard
         city={city}
