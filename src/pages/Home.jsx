@@ -111,7 +111,7 @@ const Home = () => {
         days[day].high = Math.max(
           days[day].high,
           Math.round(item.main.temp_max),
-        ); // Rounding before comparison
+        );
         days[day].low = Math.min(days[day].low, Math.round(item.main.temp_min)); // Rounding before comparison
       }
     });

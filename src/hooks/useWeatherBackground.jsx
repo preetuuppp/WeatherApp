@@ -31,6 +31,7 @@ const getBackgroundStyle = condition => {
       return 'url(https://tse4.mm.bing.net/th?id=OIP.sUiTEQ71gAfH9Hf-P2HXdAHaE7&pid=Api&P=0&h=180)';
 
     case 'overcast':
+    case 'overcast clouds':
       return 'url(https://tse1.mm.bing.net/th?id=OIP.ESApUDioyIRFNriM2VDjZAHaEK&pid=Api&P=0&h=180)';
 
     case 'mist':

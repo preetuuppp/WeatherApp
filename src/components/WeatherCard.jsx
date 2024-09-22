@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import {
-  celsiusToFahrenheit,
-  fahrenheitToCelsius,
-} from '../utils/TempratureConversion';
+import { celsiusToFahrenheit } from '../utils/TempratureConversion';
 import useWeatherBackground from '../hooks/useWeatherBackground';
 
 const WeatherCard = ({ city, temp, condition, icon }) => {
   const [isCelsius, setIsCelsius] = useState(true);
-  const background = useWeatherBackground(condition); // Use custom hook for background
+  const background = useWeatherBackground(condition); // custom hook for background
 
   const toggleTemperatureUnit = () => {
     setIsCelsius(!isCelsius);
   };
 
-  // Determine styles or additional info based on weather condition
+  // add color text according weather condition
   const getWeatherInfoStyle = () => {
     switch (condition.toLowerCase()) {
       case 'clear sky':
@@ -31,7 +28,8 @@ const WeatherCard = ({ city, temp, condition, icon }) => {
       case 'drizzle':
         return { color: '#4682B4' };
       case 'overcast':
-        return { color: '#c8ccd0' };
+      case 'overcast clouds':
+        return { color: '#eff0f6' };
       case 'tornado':
         return { color: '#c8ccd0' };
       case 'sand':
@@ -159,6 +157,16 @@ const WeatherCard = ({ city, temp, condition, icon }) => {
             <img src={icon} alt={condition} />
             <span>{condition}</span>
             <p>Be careful, it's stormy outside!</p>
+          </>
+        );
+
+      case 'overcast':
+      case 'overcast clouds':
+        return (
+          <>
+            <img src={icon} alt={condition} />
+            <span>{condition}</span>
+            <p>It's overcast! A bit gloomy outside.</p>
           </>
         );
       default:
