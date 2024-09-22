@@ -1,5 +1,7 @@
 # WeatherApp
 
+Desciption-: The Weather App is a user-friendly application designed to provide real-time weather information for various cities around the world. Built with modern web technologies, this app offers a seamless experience for users looking to check current weather conditions, forecasts, and city-specific data.
+
 ### Deployed Link
 Visit: https://weather-app-chgu.vercel.app/
 
@@ -15,10 +17,18 @@ Visit: https://weather-app-chgu.vercel.app/
 3. react-icons 
 4. React
 
+## Api 
+-->>  weather API to fetch real-time data
+
+## Features:
+1. City Search
+2. Real-Time Weather Data
+3. Visual Representation
+4. Forecast Cards
+5. Interactive Map
+
 ## Front-End Deployment - Vercel
 
-## Api 
-...>  Weather Api
 
 ### Note
 
