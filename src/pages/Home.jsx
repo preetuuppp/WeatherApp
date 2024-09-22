@@ -124,7 +124,7 @@ const Home = () => {
   };
 
   return (
-    <div className='home-background'>
+    <div>
       <Searchbar onSearch={handleSearch} />
       <WeatherCard
         city={city}

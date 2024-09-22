@@ -1,3 +1,8 @@
+.App {
+  background-image: url('https://cdn.pixabay.com/photo/2023/09/29/07/49/grassland-8283155_640.jpg');
+  width: 100%;
+}
+
 .forecast-card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -34,6 +39,7 @@
 }
 
 .search-bar input {
+  margin-top: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -41,6 +47,7 @@
 }
 
 .search-bar button {
+  margin-top: 20px;
   padding: 10px;
   background-color: #007bff;
   color: #fff;
